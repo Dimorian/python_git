@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # IPND Stage 2 Final Project
 
 # You've built a Mad-Libs game with some help from Sean.
@@ -32,10 +33,36 @@
 
 # If you need help, you can sign up for a 1 on 1 coaching appointment: https://calendly.com/ipnd-1-1/20min/
 
-print("Ich hab einen Dicken __1__");
-Antwort = raw_input("Antwort: ")
-print("Deine Antwort ist " + Antwort)
-if Antwort == "Cock":
-    print("Du bist der King, das war richtig")
-else:
-    print("nope.")
+Answers = ['lvl1eins', 'lvl1zwei', 'lvl1drei'
+           ,'lvl2eins', 'lvl2zwei', 'lvl2drei',
+           'lvl3eins', 'lvl3zwei', 'lvl3drei']
+
+
+Levels = ["Das ist ist Level 1. da kommen die lücken: __1__ __2__ __3__",
+          "Das ist ist Level 2. da kommen die lücken: __1__ __2__ __3__",
+          "Das ist ist Level 3. da kommen die lücken: __1__ __2__ __3__"]
+
+#Start of Function
+def getAnswer( i , Level):
+
+    print 'Question Nr.', count+1
+    Antwort = raw_input("Your answer is: ")
+    print("Your answer is " + Antwort)
+    if Antwort == Answers[(Level-1)*3+ i]:
+        print("Du bist der King, das war richtig")
+        return True
+    else:
+        print("nope.")
+        return False
+#End of Function
+                          
+print("Choose Level 1, 2, or 3!")
+Level = input("Welches Level?")
+print("Well, Level " + str(Level) )
+
+print(Levels[Level-1])
+count = 0
+while (count < 3):                         
+   b = getAnswer(count, Level)
+   if b == True:
+       count = count + 1
